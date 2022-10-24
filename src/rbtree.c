@@ -1,11 +1,23 @@
 #include "rbtree.h"
-
 #include <stdlib.h>
+
 
 rbtree *new_rbtree(void) {
   rbtree *p = (rbtree *)calloc(1, sizeof(rbtree));
   // TODO: initialize struct if needed
+  node_t *new_root = (node_t *)calloc(1, sizeof(node_t));
+  p->root = new_root;
+  p->root = NULL;
   return p;
+}
+
+void preorderPrint(node_t *p)
+{
+	if(p == NULL)
+		return;
+	printf("%d ",p->key);
+	preorderPrint(p->left);
+	preorderPrint(p->right);
 }
 
 void delete_rbtree(rbtree *t) {
@@ -15,6 +27,7 @@ void delete_rbtree(rbtree *t) {
 
 node_t *rbtree_insert(rbtree *t, const key_t key) {
   // TODO: implement insert
+  
   return t->root;
 }
 
